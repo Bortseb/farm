@@ -14,4 +14,4 @@ USER node
 ENV PATH="${PATH}:/home/node/bin"
 ENV NPM_CONFIG_PREFIX="${HOME}"
 ENTRYPOINT ["dumb-init"]
-CMD ["wiki", "--farm", "--security_type=friends"]
+CMD ["wiki", "--farm", "--security_type=tlsfriends"]
