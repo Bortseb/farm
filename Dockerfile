@@ -4,14 +4,9 @@ RUN apk add --update --no-cache \
   git \
   jq
 WORKDIR "/home/node"
-ARG WIKI_PACKAGE=wiki@0.29.0
+ARG WIKI_PACKAGE=wiki-farm-tlsfriends@0.1.1
 USER node
 RUN npm install -g --prefix . $WIKI_PACKAGE
-RUN cd lib/node_modules/wiki/node_modules && \
-  git clone https://github.com/Bortseb/wiki-security-tlsfriends.git
-RUN cd lib/node_modules/wiki/node_modules/wiki-security-tlsfriends && \
-  npm install && \
-  node_modules/grunt/bin/grunt
 RUN mkdir -p .wiki
 VOLUME "/home/node/.wiki"
 EXPOSE 3000
